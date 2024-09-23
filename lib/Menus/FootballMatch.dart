@@ -17,7 +17,7 @@ class _SoccerAppState extends State<SoccerApp> {
         backgroundColor: Color(0xFFFAFAFA),
         elevation: 0.0,
         title: Text(
-          "SOCCERBOARD 2022",
+          "Match 2022",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
