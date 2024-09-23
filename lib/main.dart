@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foot_balls_sport/Page/FootballMatch.dart';
+import 'package:foot_balls_sport/Home_Page.dart';
+import 'package:foot_balls_sport/LoginPage.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: SoccerApp(),
+    return GetMaterialApp(
+       initialRoute: '/',
+      getPages: [
+        // List all your routes here
+        GetPage(name: '/', page: () => Loginpage()),
+        GetPage(name: '/homepage', page: () => HomePage()),
+      ],
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foot_balls_sport/Page/FootballMatch.dart';
 import 'package:foot_balls_sport/Page/TopPlayer.dart';
 import 'package:foot_balls_sport/controller/bottom_nav_controller.dart';
+import 'package:foot_balls_sport/model/TopScorerModel.dart';
 import 'package:get/get.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,9 +13,11 @@ class HomePage extends StatelessWidget {
     final buttonNavController = 
     Get.put(BottomNavController());
 
+    final List<TopScorer> topScorers = [];
+
     final List<Widget> menus = [
       SoccerApp(),
-      Topplayer()
+      TopPlayer()
     ];
     
     return Obx(() { 
