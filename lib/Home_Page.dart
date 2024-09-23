@@ -1,45 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:foot_balls_sport/Page/FootballMatch.dart';
-import 'package:foot_balls_sport/Page/TopAssist.dart';
-import 'package:foot_balls_sport/Page/TopPlayer.dart';
+import 'package:foot_balls_sport/Menus/FootballMatch.dart';
+import 'package:foot_balls_sport/Menus/TopAssist.dart';
+import 'package:foot_balls_sport/Menus/TopPlayer.dart';
 import 'package:foot_balls_sport/controller/bottom_nav_controller.dart';
-import 'package:foot_balls_sport/model/TopScorerModel.dart';
 import 'package:get/get.dart';
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     // connect ui to controller
-    final buttonNavController = 
-    Get.put(BottomNavController());
+    final buttonNavController = Get.put(BottomNavController());
 
-    final List<TopScorer> topScorers = [];
-
+    // List of menu pages
     final List<Widget> menus = [
       SoccerApp(),
       TopPlayer(),
-      TopAssistPage()
+      TopAssistPage(),
     ];
-    
-    return Obx(() { 
+
+    return Obx(() {
       return Scaffold(
         body: menus[buttonNavController.selectedIndex.value],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: buttonNavController.selectedIndex.value,
-          onTap: (value) => buttonNavController.changeIndexMenu(value),
+        bottomNavigationBar: FlashyTabBar(
+          selectedIndex: buttonNavController.selectedIndex.value,
+          showElevation: true,
+          onItemSelected: (index) => buttonNavController.changeIndexMenu(index),
           items: [
-            BottomNavigationBarItem(
+            FlashyTabBarItem(
+              icon: Icon(Icons.sports),
+              title: Text('Match'),
+            ),
+            FlashyTabBarItem(
               icon: Icon(Icons.sports_soccer_outlined),
-              label: 'Match',
+              title: Text('Top Player'),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Top Player',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Top Assist',
+            FlashyTabBarItem(
+              icon: Icon(Icons.assistant_photo_outlined),
+              title: Text('Top Assist'),
             ),
           ],
         ),
