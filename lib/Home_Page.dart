@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foot_balls_sport/Page/FootballMatch.dart';
+import 'package:foot_balls_sport/Page/TopAssist.dart';
 import 'package:foot_balls_sport/Page/TopPlayer.dart';
 import 'package:foot_balls_sport/controller/bottom_nav_controller.dart';
 import 'package:foot_balls_sport/model/TopScorerModel.dart';
@@ -17,7 +18,8 @@ class HomePage extends StatelessWidget {
 
     final List<Widget> menus = [
       SoccerApp(),
-      TopPlayer()
+      TopPlayer(),
+      TopAssistPage()
     ];
     
     return Obx(() { 
@@ -34,6 +36,10 @@ class HomePage extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Top Player',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Top Assist',
             ),
           ],
         ),
