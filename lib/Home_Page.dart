@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foot_balls_sport/Menus/FootballMatch.dart';
-import 'package:foot_balls_sport/Menus/TopAssist.dart';
-import 'package:foot_balls_sport/Menus/TopPlayer.dart';
+import 'package:foot_balls_sport/Screen/FootballMatch.dart';
+import 'package:foot_balls_sport/Screen/Profile.dart';
+import 'package:foot_balls_sport/Screen/TopPlayer.dart';
 import 'package:foot_balls_sport/controller/bottom_nav_controller.dart';
 import 'package:get/get.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
@@ -11,14 +11,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // connect ui to controller
     final buttonNavController = Get.put(BottomNavController());
 
-    // List of menu pages
     final List<Widget> menus = [
       SoccerApp(),
-      TopPlayer(),
-      TopAssistPage(),
+      Topplayer(),
+      Profile(),
     ];
 
     return Obx(() {
@@ -39,7 +37,7 @@ class HomePage extends StatelessWidget {
             ),
             FlashyTabBarItem(
               icon: Icon(Icons.assistant_photo_outlined),
-              title: Text('Top Assist'),
+              title: Text('Profile'),
             ),
           ],
         ),
