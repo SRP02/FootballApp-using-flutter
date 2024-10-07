@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
               title: Text('Top Player'),
             ),
             FlashyTabBarItem(
-              icon: Icon(Icons.assistant_photo_outlined),
+              icon: Icon(Icons.person),
               title: Text('Profile'),
             ),
           ],
