@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foot_balls_sport/API/api_manager.dart';
 import 'package:foot_balls_sport/Widget/Bodypage.dart';
+import 'package:foot_balls_sport/Widget/TeamList.dart';
 import 'package:foot_balls_sport/model/matchmodel.dart';
 
 class SoccerApp extends StatefulWidget {
@@ -11,18 +12,44 @@ class SoccerApp extends StatefulWidget {
 class _SoccerAppState extends State<SoccerApp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFFAFAFA),
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFAFAFA),
-        elevation: 0.0,
-        title: Text(
-          "Match 2022",
-          style: TextStyle(color: Colors.black),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Match & Team"),
+          centerTitle: true,
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(40),
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              child: Container(
+                height: 40,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  color: Colors.blue.shade100,
+                ),
+                child: TabBar(
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  dividerColor: Colors.transparent,
+                  indicator: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  labelColor: Colors.white,
+                  unselectedLabelColor: Colors.black54,
+                  tabs: [
+                    Tab(text: 'Matches'),
+                    Tab(text: 'Teams'),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
-        centerTitle: true,
-      ),
-      body: FutureBuilder<List<SoccerMatch>>(
+        body: TabBarView(
+          children: [
+            FutureBuilder<List<SoccerMatch>>(
         future: SoccerApi().getAllMatches(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -45,6 +72,10 @@ class _SoccerAppState extends State<SoccerApp> {
             );
           }
         },
+      ),
+            TeamList()
+          ],
+        ),
       ),
     );
   }
