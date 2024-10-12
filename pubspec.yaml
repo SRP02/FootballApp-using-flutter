@@ -38,6 +38,7 @@ dependencies:
   http: ^1.2.2
   get: ^4.6.6
   flashy_tab_bar2: ^0.0.10
+  sqflite: ^2.3.3+2
 
 dev_dependencies:
   flutter_test:
