@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:foot_balls_sport/Bind/Binding.dart';
 import 'package:foot_balls_sport/Home_Page.dart';
 import 'package:foot_balls_sport/LoginPage.dart';
+import 'package:foot_balls_sport/controller/favoriteTeamController.dart';
 import 'package:get/get.dart';
 
 
 void main() {
+    Get.put(FavoriteTeamController());
+
   runApp(const MyApp());
 }
 

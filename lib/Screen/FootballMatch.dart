@@ -65,7 +65,7 @@ class _SoccerAppState extends State<SoccerApp> {
           } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             // Ensure the data is not null and is not empty
             print(snapshot.data!.length);
-            return PageBody(snapshot.data!); // Use a null assertion operator
+            return PageBody(snapshot.data!); 
           } else {
             return Center(
               child: Text("No matches found"),
