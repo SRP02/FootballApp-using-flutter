@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: () {
-                            Get.toNamed('/homepage');
+                            Get.offNamed('/homepage');
                         },
                         child: const Text('Login'),
                         style: ElevatedButton.styleFrom(
